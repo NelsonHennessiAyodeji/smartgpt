@@ -38,10 +38,11 @@ export const generateChatResponse = async (chatMessage) => {
       contents: [{ role: "user", parts }],
       generationConfig,
     });
-    console.log(result.response.text());
 
     return result.response.text();
   } catch (error) {
+    console.log(error);
+
     return null; // this wouldnt do much, because i think react query block or overides it, basically we would be checking for the data rather than the error here, cos react query dioesnt let code get here, i think.
   }
 };

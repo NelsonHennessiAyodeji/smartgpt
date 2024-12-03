@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const links = [
-  { href: "./chat", label: "chat" },
-  { href: "./books", label: "books" },
-  { href: "./books/new-books", label: "new book" },
-  { href: "./profile", label: "profile" },
+  { href: "http://localhost:3000/chat", label: "chat" },
+  { href: "http://localhost:3000/books", label: "books" },
+  { href: "./books/new-book", label: "new book" },
+  { href: "http://localhost:3000/profile", label: "profile" },
 ];
 
 const NavLink = () => {

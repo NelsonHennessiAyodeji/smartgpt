@@ -1,0 +1,13 @@
+{
+  "bookInfo": {
+    "book": "Harry Potter",
+    "author": "J.K. Rowling",
+    "scheduledTime": "7:00 AM - 7:30 AM (Chapter 1), 12:00 PM - 12:30 PM (Chapter 2), 6:00 PM - 6:30 PM (Chapter 3)",
+    "description": "Harry Potter, written by J.K. Rowling, is a popular fantasy series following the adventures of a young wizard named Harry Potter as he attends Hogwarts School of Witchcraft and Wizardry. The series explores themes of friendship, courage, and overcoming adversity.",
+    "higlights": [
+      "Harry's discovery of his magical abilities and his acceptance into Hogwarts.",
+      "The introduction of memorable characters like Ron Weasley and Hermione Granger.",
+      "The gradual unfolding of the mystery surrounding the dark wizard Voldemort and his attempts to gain power."
+    ]
+  }
+}

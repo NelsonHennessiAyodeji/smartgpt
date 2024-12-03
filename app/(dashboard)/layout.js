@@ -5,7 +5,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 const pages = [
   { name: "Chat", link: "./chat" },
   { name: "Books", link: "./books" },
-  { name: "New Book", link: "./books" },
+  { name: "New Book", link: "./books/new-book" },
   { name: "Profile", link: "./profile" },
 ];
 

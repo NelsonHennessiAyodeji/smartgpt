@@ -4,6 +4,7 @@ import {
   HarmCategory,
   HarmBlockThreshold,
 } from "@google/generative-ai";
+import prisma from "./dbConnect";
 
 const apiKey = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -51,7 +52,14 @@ export const generateChatResponse = async (chatMessage) => {
 };
 
 export const getExistingBook = async ({ author, book }) => {
-  return null;
+  return prisma.book.findUnique({
+    where: {
+      book_author: {
+        book,
+        author,
+      },
+    },
+  });
 };
 
 export const generateBookResponse = async ({ author, book }) => {
@@ -63,7 +71,6 @@ Once you have a list, create a pseudo scheduled time for the day to read at leas
   "bookInfo": {
     "book": "${book}",
     "author": "${author}",
-    "scheduledTime": "write me your recommeded schedule, assuminig i have nothing to do for the day without tabbing, write it all on one line",
     "description": "description of the book and author without tabbing, write it all on one line",
     "highlights": ["short paragraph on the higlight 1 ", "short paragraph on the highlight 2","short paragraph on the highlight 3"]
   }
@@ -108,5 +115,41 @@ tht other response If you can't find info on exact ${book}, or ${book} does not 
 };
 
 export const createNewBook = async (book) => {
-  return null;
+  return prisma.book.create({
+    data: book,
+  });
+};
+
+export const getAllBooks = async (searchTerm) => {
+  // If user isn't searching for anything, then present to them all the books
+  if (!searchTerm) {
+    const books = await prisma.book.findMany({
+      orderBy: {
+        book: "asc",
+      },
+    });
+    return books;
+  }
+
+  // Order books by book name, and searches them by search bar...
+  const books = await prisma.book.findMany({
+    where: {
+      OR: [
+        { book: { contains: searchTerm }, author: { contains: searchTerm } },
+      ],
+    },
+    orderBy: {
+      book: "asc",
+    },
+  });
+
+  return books;
+};
+
+export const getSingleBook = async (id) => {
+  return prisma.book.findUnique({
+    where: {
+      id,
+    },
+  });
 };

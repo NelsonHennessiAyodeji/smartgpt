@@ -1,8 +1,8 @@
 "use client";
 
 const BookInfo = ({ bookInfo }) => {
-  console.log(bookInfo);
-  const { book, author, scheduledTime, description, highlights } = bookInfo;
+  // console.log(bookInfo);
+  const { book, author, description, highlights } = bookInfo;
 
   return (
     <div className="max-w-2xl">

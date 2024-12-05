@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// @db.Text: This attribute is used to specify the type of the column in the underlying database. 
+// When you use @db.Text, you're telling Prisma that the particular field should be stored as a text column in 
+// the database. Text columns can store large amounts of string data, typically used for long-form text that 
+// exceeds the length limits of standard string columns. 
+// This is often used for descriptions, comments, JSON-formatted strings, etc.
+
+model Book {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  book String
+  author String
+  description String @db.Text
+  image String? @db.Text
+  highlights Json
+  @@unique([book, author])// I wont be able to create the same book over and over again
+}

@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const links = [
-  { href: "http://localhost:3000/chat", label: "chat" },
-  { href: "http://localhost:3000/books", label: "books" },
+  { href: "https://smartgpt-nu.vercel.app/chat", label: "chat" },
+  { href: "https://smartgpt-nu.vercel.app/books", label: "books" },
   { href: "./books/new-book", label: "new book" },
-  { href: "http://localhost:3000/profile", label: "profile" },
+  { href: "https://smartgpt-nu.vercel.app/profile", label: "profile" },
 ];
 
 const NavLink = () => {

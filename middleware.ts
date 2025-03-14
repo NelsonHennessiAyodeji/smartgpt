@@ -4,7 +4,7 @@ import { authMiddleware } from "@clerk/nextjs";
 // Please edit this to allow other routes to be public as needed.
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 export default authMiddleware({
-  // Set the home page as the only accessable page
+  // Set the home page as the only accessable page. Yessir
   publicRoutes: ["/"],
 });
 
